@@ -34,7 +34,8 @@ export function initDatabase(): void {
     ('disabledCommands', '[]'),
     ('lang', 'en'),
     ('currency', 'COIN'),
-    ('customMessages', '');
+    ('customMessages', ''),
+    ('soundReward', '[]');
   `);
 }
 

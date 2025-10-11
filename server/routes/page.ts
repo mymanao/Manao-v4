@@ -1,6 +1,7 @@
 import { CommandManager } from "@server/app/Commands.tsx";
 import { Home } from "@server/app/Home.tsx";
 import { Queue } from "@server/app/Queue.tsx";
+import { ChannelPoints } from "@server/app/soundboard/ChannelPoints.tsx";
 import { SoundboardController } from "@server/app/soundboard/Controller.tsx";
 import { SoundboardPlayer } from "@server/app/soundboard/Player.tsx";
 import { Template } from "@server/app/Template.tsx";
@@ -35,10 +36,18 @@ function registerPageRoutes(app: Elysia): Elysia {
       includeScripts: ["soundboard/controller.js"],
     }),
   );
+
   app.get("/soundboard/player", () =>
     Template(SoundboardPlayer(), {
       title: "ManaoWeb - Soundboard Player",
       includeScripts: ["soundboard/player.js"],
+    }),
+  );
+
+  app.get("/soundboard/channel-points", () =>
+    Template(ChannelPoints(), {
+      title: "ManaoWeb - Channel Points Soundboard",
+      includeScripts: ["soundboard/channelpoints.js"],
     }),
   );
 

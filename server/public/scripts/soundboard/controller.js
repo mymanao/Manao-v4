@@ -1,17 +1,17 @@
 const socket = createSocketConnection();
 
 const defaultSounds = [
-  { name: "Ba Dum Tss", url: "/mp3/ba-dum-tss.mp3" },
-  { name: "Applause", url: "/mp3/applause.mp3" },
-  { name: "Lucio Boop", url: "/mp3/boop-lucio.mp3" },
-  { name: "Sombra Boop", url: "/mp3/boop-sombra.mp3" },
-  { name: "Chicken Jockey", url: "/mp3/chicken-jockey.mp3" },
-  { name: "Flint and Steel", url: "/mp3/flint-and-steel.mp3" },
-  { name: "I... am Steve", url: "/mp3/i-am-steve.mp3" },
-  { name: "Illuminati", url: "/mp3/illuminati.mp3" },
-  { name: "Taco Bell", url: "/mp3/taco-bell.mp3" },
-  { name: "The Nether", url: "/mp3/the-nether.mp3" },
-  { name: "Vine Boom", url: "/mp3/vine-boom.mp3" },
+  { name: "Ba Dum Tss", url: "/sounds/ba-dum-tss.mp3" },
+  { name: "Applause", url: "/sounds/applause.mp3" },
+  { name: "Lucio Boop", url: "/sounds/boop-lucio.mp3" },
+  { name: "Sombra Boop", url: "/sounds/boop-sombra.mp3" },
+  { name: "Chicken Jockey", url: "/sounds/chicken-jockey.mp3" },
+  { name: "Flint and Steel", url: "/sounds/flint-and-steel.mp3" },
+  { name: "I... am Steve", url: "/sounds/i-am-steve.mp3" },
+  { name: "Illuminati", url: "/sounds/illuminati.mp3" },
+  { name: "Taco Bell", url: "/sounds/taco-bell.mp3" },
+  { name: "The Nether", url: "/sounds/the-nether.mp3" },
+  { name: "Vine Boom", url: "/sounds/vine-boom.mp3" },
 ];
 
 let sounds =

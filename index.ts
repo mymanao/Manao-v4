@@ -1,5 +1,4 @@
-import { main } from "@/client/twitch";
+import "@/client/twitch";
 import { startServer } from "./server";
 
 startServer();
-await main();

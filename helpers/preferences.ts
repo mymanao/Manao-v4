@@ -70,6 +70,41 @@ export function getDisabledCommands(): string[] {
   }
 }
 
+export function getSoundRewards(): any[] {
+  return JSON.parse(getConfig("soundReward", "[]") ?? "[]");
+}
+
+export function getSoundFromRewardId(id: string): string | null {
+  const rewards = getSoundRewards();
+  const reward = rewards.find((r) => r.id === id);
+  return reward ? reward.sound : null;
+}
+
+export function updateSoundFromRewardId(id: string, sound: string): void {
+  const rewards = getSoundRewards();
+  const reward = rewards.find((r) => r.id === id);
+  if (reward) {
+    reward.sound = sound;
+    setConfig("soundReward", JSON.stringify(rewards));
+  } else {
+    addSoundReward({ id, sound });
+  }
+}
+
+export function addSoundReward(reward: { id: string; sound: string }): any[] {
+  const rewards = getSoundRewards();
+  rewards.push(reward);
+  setConfig("soundReward", JSON.stringify(rewards));
+  return rewards;
+}
+
+export function removeSoundReward(rewardId: string): any[] {
+  const rewards = getSoundRewards();
+  const updatedRewards = rewards.filter((r) => r.id !== rewardId);
+  setConfig("soundReward", JSON.stringify(updatedRewards));
+  return updatedRewards;
+}
+
 export function toggleCommand(commandName: string): boolean {
   const disabledCommands = getDisabledCommands();
   const index = disabledCommands.indexOf(commandName);

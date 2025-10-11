@@ -2,8 +2,10 @@ import { logger } from "@helpers/logger.ts";
 import {
   getCustomMessages,
   getLang,
+  getSoundRewards,
   parseTemplate,
 } from "@helpers/preferences.ts";
+import { handleReward } from "@twitch/handler/rewardHandler.ts";
 import type { ApiClient } from "@twurple/api";
 import type { ChatClient } from "@twurple/chat";
 import { EventSubWsListener } from "@twurple/eventsub-ws";
@@ -19,6 +21,7 @@ export async function initializeEventSub(
   await setupFollowListener(listener, chatClient);
   await setupSubscriptionListener(listener, chatClient);
   await setupRaidListener(listener, chatClient);
+  setupRewardListeners(listener);
   listener.start();
   logger.info("[EventSub] Listener started");
 }
@@ -92,4 +95,14 @@ async function setupRaidListener(
     } as FeedEvent);
   });
   logger.info("[EventSub] Registered raid listener");
+}
+
+function setupRewardListeners(listener: EventSubWsListener) {
+  getSoundRewards().forEach((r) => {
+    listener.onChannelRedemptionAddForReward(
+      TWITCH.BROADCASTER.ID,
+      r.id,
+      handleReward,
+    );
+  });
 }

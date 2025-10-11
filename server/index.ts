@@ -3,6 +3,8 @@ import { staticPlugin } from "@elysiajs/static";
 import { registerCommandsAPI } from "@server/api/commands.ts";
 import { registerCustomCommandAPI } from "@server/api/custom-commands.ts";
 import { registerMusicAPI } from "@server/api/music.ts";
+import { registerRewardsAPI } from "@server/api/rewards.ts";
+import { registerSoundboardAPI } from "@server/api/soundboard.ts";
 import { registerOverlayRoutes } from "@server/routes/overlay.ts";
 import { registerPageRoutes } from "@server/routes/page.ts";
 import { initializeSocketServer } from "@server/services/socket.io.ts";
@@ -31,6 +33,8 @@ registerOverlayRoutes(app);
 registerMusicAPI(app);
 registerCommandsAPI(app);
 registerCustomCommandAPI(app);
+registerRewardsAPI(app);
+registerSoundboardAPI(app);
 
 function startServer() {
   app.listen(
