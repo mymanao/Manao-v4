@@ -40,6 +40,8 @@ expected if you are not using Bun.
 
 ### Chat bot
 
+For a more comprehensive list, check the [wiki](https://github.com/wrong-lang/manao/wiki).
+
 - Moderation
     1. `Announce` - Announce a message to the chat
     2. `Game    ` - Change stream's game
