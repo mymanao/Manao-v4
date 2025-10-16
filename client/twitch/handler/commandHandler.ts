@@ -2,6 +2,7 @@ import { findCommand } from "@helpers/command";
 import {
   addBalance,
   getBalance,
+  initAccount,
   setBalance,
   subtractBalance,
 } from "@helpers/database";
@@ -103,12 +104,13 @@ export async function handleCommand(
         addBalance,
         subtractBalance,
         setBalance,
+        initAccount,
         language: lang,
       };
 
       const executeCommand = new Function(
         "context",
-        `const { client, meta, message, args, say, getInput, getBalance, addBalance, subtractBalance, setBalance, language } = context; ${String(command.execute)}`,
+        `const { client, meta, message, args, say, getInput, getBalance, addBalance, subtractBalance, setBalance, language, initAccount } = context; ${String(command.execute)}`,
       );
 
       await executeCommand(context);
