@@ -132,11 +132,14 @@ However, if you have any questions, feel free to ask in the [Discord server](htt
 
 ## 📜 License
 
-This project is licensed under the [MIT License](/LICENSE).
+This project is licensed under the [CC BY-NC-SA 4.0](/LICENSE). For more info, refer to [CreativeCommons Website](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
 
 ## 🙋‍♂️ FAQ
 
 ### How do I get my Twitch API credentials?
+
+> **For an updated guide, see [Retrieving Client ID and Secret from Twitch
+](https://github.com/wrong-lang/manao/wiki/Retrieving-Client-ID-and-Secret-from-Twitch)**
 
 You can get your Twitch API credentials by creating a **new application** (not extensions) in
 the [Twitch Developer Portal](https://dev.twitch.tv/). Set "OAuth Redirect URL" to `http://localhost:3000/`, set the category
@@ -162,7 +165,7 @@ for the installation.
 For further assistance about installing Bun, you may ask in the [Bun official Discord server](https://bun.sh/discord).
 
 ### How do I add the overlays to my stream?
-
+> **For an updated guide, see [Adding Overlays in OBS](https://github.com/wrong-lang/manao/wiki/adding-overlays-in-obs)**
 You can add the overlays to your stream by adding a new browser source in your streaming software (OBS, Streamlabs, etc.).
 You can copy the URL of the overlay you want to add and paste it in the URL field of the browser source.
 For music source, to interact with the player, find the "Interact" button. From there, you can set the YouTube Player 
@@ -171,7 +174,7 @@ If you want to skip the song manually, drag the time slider to the end of the vi
 
 The URLs of the overlays are as follows (assuming you are running the bot locally):
 - Chat Overlay: `http://localhost:3000/overlays/chat`
-- Event Feed: `http://localhost:3000/overlays/events`
+- Event Feed: `http://localhost:3000/overlays/feed`
 - Music Player: `http://localhost:3000/overlays/music`
 - Soundboard Player: `http://localhost:3000/soundboard/player`
 
