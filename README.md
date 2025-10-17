@@ -23,7 +23,7 @@
 
 - [About](#-about)
 - [Features](#-features)
-- [Installation](#-installation)
+- [Guides](#-guides)
 - [Contributing](#-contributing)
 - [License](#-license)
 - [FAQ](#-faq)
@@ -88,6 +88,7 @@ For a more comprehensive list, check the [wiki](https://github.com/wrong-lang/ma
 - `Chat Overlay` - Show chat messages on the stream (Nickname command linked)
 - `Event Feed  ` - Show recent events on the stream (Linked with economic commands)
 - `Music Player` - Play music on the stream (Click now-playing box to hide the video)
+- `Soundboard Player` - Play sound effects on the stream (Can be linked with channel points)
 
 ### Entertainment 
 You can now add a new channel point rewards to play sounds on stream using the rewards manager.
@@ -97,68 +98,32 @@ But if you want to control the soundboard yourself, go to the soundboard control
 http://localhost:3000/soundboard/controller.
 Otherwise, you can use the soundboard player overlay: 
 http://localhost:3000/soundboard/player.
-(Click "Hide" button to hide the entire page and become audio player only)
+(Click "Hide" button to hide the entire page and become audio player only).
+For more information, check the [wiki guide](https://github.com/wrong-lang/manao/wiki/linking-channel-points-to-soundboard)
 
-## 🛠️ Installation
 
-### Prerequisites
+## 📘 Guides
 
-- [Bun](https://bun.sh) (Version 1.0.0 or higher is recommended)
-- [Twitch Developer Account](https://dev.twitch.tv/) (For the chatbot)
+Read more at the [ManaoWiki](https://github.com/wrong-lang/manao/wiki/)
 
-### Setup
+### English Guides
+1. [Retrieving Client ID and Secret from Twitch](https://github.com/wrong-lang/manao/wiki/Retrieving-Client-ID-and-Secret-from-Twitch)
+2. [Project Installation](https://github.com/wrong-lang/manao/wiki/Project-Installation)
+3. [Setting up Manao](https://github.com/wrong-lang/manao/wiki/Setting-up-Manao)
+4. [Using ManaoWeb](https://github.com/wrong-lang/manao/wiki/Using-ManaoWeb)
+5. [Adding Overlays in OBS](https://github.com/wrong-lang/manao/wiki/adding-overlays-in-obs)
+6. [Linking Channel Points to Soundboard](https://github.com/wrong-lang/manao/wiki/linking-channel-points-to-soundboard)
+7. [Writing Your First Custom Command](https://github.com/wrong-lang/manao/wiki/writing-your-first-custom-command)
 
-1. Clone the repository
+### Thai Guides
+1. [รับไคล์แอนต์ไอดีและซีเครทจากทวิช](https://github.com/wrong-lang/manao/wiki/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%84%E0%B8%84%E0%B8%A5%E0%B9%8C%E0%B9%81%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B9%8C%E0%B9%84%E0%B8%AD%E0%B8%94%E0%B8%B5%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%8B%E0%B8%B5%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%97%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%97%E0%B8%A7%E0%B8%B4%E0%B8%8A)
+2. [ติดตั้งโปรเจกต์](https://github.com/wrong-lang/manao/wiki/%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B8%81%E0%B8%95%E0%B9%8C)
+3. [ตั้งค่ามะนาว](https://github.com/wrong-lang/manao/wiki/%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B8%A1%E0%B8%B0%E0%B8%99%E0%B8%B2%E0%B8%A7)
+4. [เริ่มใช้งานมะนาวเว็บ](https://github.com/wrong-lang/manao/wiki/%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A1%E0%B8%B0%E0%B8%99%E0%B8%B2%E0%B8%A7%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A)
+5. [เพิ่มโอเวอร์เลย์ใน OBS](https://github.com/wrong-lang/manao/wiki/%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B9%82%E0%B8%AD%E0%B9%80%E0%B8%A7%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%A5%E0%B8%A2%E0%B9%8C%E0%B9%83%E0%B8%99-OBS)
+6. [ลิงก์แต้มช่องกับซาวด์บอร์ด](https://github.com/wrong-lang/manao/wiki/%E0%B8%A5%E0%B8%B4%E0%B8%87%E0%B8%81%E0%B9%8C%E0%B9%81%E0%B8%95%E0%B9%89%E0%B8%A1%E0%B8%8A%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B8%B2%E0%B8%A7%E0%B8%94%E0%B9%8C%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%94)
+7. [เขียนคำสั่งแรก](https://github.com/wrong-lang/manao/wiki/%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%84%E0%B8%B3%E0%B8%AA%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%81)
 
-```sh
-git clone https://github.com/wrong-lang/manao.git
-cd manao
-```
-
-2. Install dependencies
-
-```sh
-bun install
-```
-
-3. Rename a `.env.example` file to `.env` in the root directory, the file content should be something like this:
-
-```dotenv
-# ========================
-#       TWITCH BOT
-# ========================
-
-USE_TWITCH=true # Set to false if you don't want to use the Twitch bot 
-TWITCH_BOT_ACCESS_TOKEN= # Run setup script
-TWITCH_BOT_REFRESH_TOKEN= # Run setup script
-
-BROADCASTER_ACCESS_TOKEN= # Run setup script
-BROADCASTER_REFRESH_TOKEN= # Run setup script
-
-TWITCH_BOT_ID= # Run setup script
-BROADCASTER_ID= # Run setup script
-BROADCASTER_CHANNEL= # Run setup script
-
-TWITCH_CLIENT_ID= # Get it from Twitch Developer Portal (Read wiki)
-TWITCH_CLIENT_SECRET= # Get it from Twitch Developer Portal (Read wiki)
-
-# ========================
-#       DISCORD BOT
-# ========================
-
-USE_DISCORD=false
-DISCORD_BOT_TOKEN= # Not yet implemented
-DISCORD_CLIENT_ID= # Not yet implemented
-SERVER_ID= # Not yet implemented
-
-NODE_ENV= # Either "development" or "production" but for now it doesn't make any differences
-```
-
-4. Start the bot
-
-```sh
-bun start
-```
 
 ## 👋 Contributing
 
