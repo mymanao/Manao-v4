@@ -138,8 +138,8 @@ This project is licensed under the [CC BY-NC-SA 4.0](/LICENSE). For more info, r
 
 ### How do I get my Twitch API credentials?
 
-> **For an updated guide, see [Retrieving Client ID and Secret from Twitch
-](https://github.com/wrong-lang/manao/wiki/Retrieving-Client-ID-and-Secret-from-Twitch)**
+> **For an updated guide, see [Retrieving Client ID and Secret from Twitch](https://github.com/wrong-lang/manao/wiki/Retrieving-Client-ID-and-Secret-from-Twitch)**
+
 
 You can get your Twitch API credentials by creating a **new application** (not extensions) in
 the [Twitch Developer Portal](https://dev.twitch.tv/). Set "OAuth Redirect URL" to `http://localhost:3000/`, set the category
