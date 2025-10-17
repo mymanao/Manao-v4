@@ -40,7 +40,7 @@ expected if you are not using Bun.
 
 ### Chat bot
 
-For a more comprehensive list, check the [wiki](https://github.com/wrong-lang/manao/wiki).
+> **For a more comprehensive list, check the [ManaoWiki](https://github.com/wrong-lang/manao/wiki).**
 
 - Moderation
     1. `Announce` - Announce a message to the chat
@@ -91,6 +91,9 @@ For a more comprehensive list, check the [wiki](https://github.com/wrong-lang/ma
 - `Soundboard Player` - Play sound effects on the stream (Can be linked with channel points)
 
 ### Entertainment 
+
+> **For an updated guide, see [Linking Channel Points to Soundboard](https://github.com/wrong-lang/manao/wiki/linking-channel-points-to-soundboard).**
+
 You can now add a new channel point rewards to play sounds on stream using the rewards manager.
 Add yours now!
 (Version 2.1.0 or higher): http://localhost:3000/soundboard/channel-points. 
@@ -99,7 +102,6 @@ http://localhost:3000/soundboard/controller.
 Otherwise, you can use the soundboard player overlay: 
 http://localhost:3000/soundboard/player.
 (Click "Hide" button to hide the entire page and become audio player only).
-For more information, check the [wiki guide](https://github.com/wrong-lang/manao/wiki/linking-channel-points-to-soundboard)
 
 
 ## 📘 Guides
