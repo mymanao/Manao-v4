@@ -167,7 +167,9 @@ for the installation.
 For further assistance about installing Bun, you may ask in the [Bun official Discord server](https://bun.sh/discord).
 
 ### How do I add the overlays to my stream?
+
 > **For an updated guide, see [Adding Overlays in OBS](https://github.com/wrong-lang/manao/wiki/adding-overlays-in-obs)**
+> 
 You can add the overlays to your stream by adding a new browser source in your streaming software (OBS, Streamlabs, etc.).
 You can copy the URL of the overlay you want to add and paste it in the URL field of the browser source.
 For music source, to interact with the player, find the "Interact" button. From there, you can set the YouTube Player 
