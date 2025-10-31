@@ -3,7 +3,7 @@
     // Environment setup & latest features
     "lib": ["ESNext"],
     "target": "ESNext",
-    "module": "Preserve",
+    "module": "ESNext",
     "moduleDetection": "force",
     "allowJs": true,
     "baseUrl": ".",
@@ -33,6 +33,8 @@
     "noPropertyAccessFromIndexSignature": false,
     "jsx": "react",
     "jsxFactory": "Html.createElement",
-    "jsxFragmentFactory": "Html.Fragment"
+    "jsxFragmentFactory": "Html.Fragment",
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true
   }
 }

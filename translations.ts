@@ -44,6 +44,8 @@ export const translations = {
       errorPermission: "You don't have permission to run this command",
       errorCurrentGameNotFound:
         "Current game not found, or the broadcaster didn't specify stream's category",
+      errorCodeInvalidOrExpired:
+        "The provided code is invalid or has expired. Please generate a new code to proceed.",
 
       currentLanguage: "Your current language is: {}",
       currentLanguageChanged: "Language changed to: {}",
@@ -54,6 +56,7 @@ export const translations = {
       currentGameChanged: "Game changed to: {}",
       currentCurrency: "The channel's current currency is: {}",
       currentCurrencyChanged: "Channel's currency changed to: {}",
+      linkSuccess: "Account successfully linked",
     },
     moderation: {
       errorCannotAnnounce: "An error occurred while trying to announce",
@@ -145,6 +148,8 @@ export const translations = {
       errorPermission: "คุณไม่มีสิทธิ์สั่งคำสั่งนี้",
       errorCurrentGameNotFound:
         "ไม่พบเกมของสตรีม หรือผู้ดำเนินรายการไม่ได้ระบุหมวดหมู่ของสตรีม",
+      errorCodeInvalidOrExpired:
+        "รหัสที่ให้มาไม่ถูกต้องหรือหมดอายุแล้ว กรุณาสร้างรหัสใหม่เพื่อดำเนินการต่อ",
 
       currentLanguage: "ภาษาปัจจุบันของคุณคือ: {}",
       currentLanguageChanged: "เปลี่ยนภาษาเป็น: {}",
@@ -155,6 +160,7 @@ export const translations = {
       currentGameChanged: "เกมถูกเปลี่ยนเป็น: {}",
       currentCurrency: "สกุลเงินปัจจุบันของช่องคือ: {}",
       currentCurrencyChanged: "สกุลเงินของช่องถูกเปลี่ยนเป็น: {}",
+      linkSuccess: "บัญชีถูกเชื่อมต่อเรียบร้อยแล้ว",
     },
     moderation: {
       errorCannotAnnounce: "เกิดข้อผิดพลาดขณะพยายามประกาศ",

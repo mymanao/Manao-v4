@@ -29,6 +29,12 @@ export function initDatabase(): void {
       execute TEXT
     );
 
+    CREATE TABLE IF NOT EXISTS linked_accounts (
+      discord_id TEXT PRIMARY KEY,
+      twitch_id TEXT UNIQUE,
+      linked_at INTEGER DEFAULT (strftime('%s','now'))
+    );
+
     INSERT OR IGNORE INTO config (key, value) VALUES
     ('defaultSong', '[]'),
     ('disabledCommands', '[]'),
@@ -45,6 +51,13 @@ export function initAccount(userID: string | number): void {
   if (!exists) {
     db.prepare("INSERT INTO users (user, money) VALUES (?, ?)").run(userID, 0);
   }
+}
+
+export function getTwitchID(discordID: string): string {
+  const row = db
+    .prepare("SELECT twitch_id FROM linked_accounts WHERE discord_id = ?")
+    .get(discordID);
+  return (row as { twitch_id: string })?.twitch_id ?? "";
 }
 
 export function getNickname(userID: string | number): string | null {

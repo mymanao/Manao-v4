@@ -28,6 +28,9 @@
       "arrowParentheses": "always",
       "bracketSpacing": true,
       "bracketSameLine": false
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   },
   "assist": {

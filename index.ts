@@ -1,6 +1,6 @@
 import "@/client/twitch";
-import { initDiscordBot } from "@/client/discord";
+import { run } from "@/client/discord";
 import { startServer } from "./server";
 
 startServer();
-initDiscordBot();
+await run();

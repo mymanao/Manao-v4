@@ -1,30 +1,56 @@
+import { dirname, importx } from "@discordx/importer";
 import { logger } from "@helpers/logger.ts";
-import Eris from "eris";
+import {
+  Events,
+  IntentsBitField,
+  type Interaction,
+  type Message,
+} from "discord.js";
+import { Client } from "discordx";
 import { DISCORD, PREFIX } from "@/config.ts";
 
-const bot = Eris(DISCORD.BOT_TOKEN, {
-  intents: ["messageContent", "guildMessages"],
+export const bot = new Client({
+  botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
+
+  intents: [
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildMessageReactions,
+    IntentsBitField.Flags.GuildVoiceStates,
+    IntentsBitField.Flags.MessageContent,
+  ],
+
+  silent: false,
+
+  simpleCommand: {
+    prefix: PREFIX,
+  },
 });
 
-export async function initDiscordBot(): Promise<void> {
+bot.once(Events.ClientReady, async () => {
+  await bot.guilds.fetch();
+  void bot.initApplicationCommands();
+  logger.info("[Manao] Discord bot is ready");
+});
+
+bot.on("interactionCreate", (interaction: Interaction) => {
+  bot.executeInteraction(interaction);
+});
+
+bot.on("messageCreate", (message: Message) => {
+  void bot.executeCommand(message);
+});
+
+export async function run() {
   if (!DISCORD.ENABLED) return;
+  await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
 
-  bot.on("ready", () => {
-    logger.info(`[Manao] Discord bot ready, as ${bot.user.username}`);
-  });
+  if (!DISCORD.BOT_TOKEN) {
+    throw Error(
+      "[Manao] Discord feature is enabled, but the DISCORD_BOT_TOKEN is not provided.",
+    );
+  }
 
-  await bot.connect();
-
-  bot.on("messageCreate", async (message: Eris.Message) => {
-    if (message.content.startsWith(PREFIX)) {
-      const args = message.content.slice(PREFIX.length).trim().split(/ +/);
-      const commandName = args.shift()?.toLowerCase();
-
-      switch (commandName) {
-        case "ping":
-          await bot.createMessage(message.channel.id, "Pong!");
-          break;
-      }
-    }
-  });
+  await bot.login(DISCORD.BOT_TOKEN);
 }
