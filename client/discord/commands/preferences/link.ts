@@ -1,6 +1,6 @@
 import { Category } from "@discordx/utilities";
 import { templateEmbed } from "@helpers/embed.ts";
-import type { CommandInteraction } from "discord.js";
+import { type CommandInteraction, MessageFlagsBitField } from "discord.js";
 import { Discord, Slash } from "discordx";
 
 export const pendingLinks = new Map<
@@ -34,6 +34,7 @@ export class LinkCommand {
           interaction: interaction,
         }),
       ],
+      flags: MessageFlagsBitField.Flags.Ephemeral,
     });
   }
 }
