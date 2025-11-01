@@ -17,7 +17,7 @@ export default {
 
     await client.chat.say(
       meta.channel,
-      `@${meta.user} ${t("info.version", meta.lang, MANAO_VERSION, BUN_VERSION, TWURPLE_VERSION)}`,
+      `@${meta.user} ${t("info.version", meta.lang, MANAO_VERSION, TWURPLE_VERSION, BUN_VERSION)}`,
     );
   },
 };
