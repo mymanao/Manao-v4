@@ -9,7 +9,7 @@
     A collection of utilities and tools for Twitch streamers
   </p>
   <div style="display: flex; flex-wrap: wrap; justify-items: center; justify-content: center">
-<a href="https://wakatime.com/badge/user/5cb7cd14-ac7e-4fc0-9f81-6036760cb6a3/project/018dddd9-a419-43b0-95cd-8348fafaccad"><img src="https://wakatime.com/badge/user/5cb7cd14-ac7e-4fc0-9f81-6036760cb6a3/project/018dddd9-a419-43b0-95cd-8348fafaccad.svg" alt="wakatime"></a>
+<a href="https://hackatime-badge.hackclub.com/U096PDK4PL3/Manao"><img src="https://hackatime-badge.hackclub.com/U096PDK4PL3/Manao" alt="wakatime"></a>
 <a href="https://github.com/wrong-lang/manao/pulse"><img src="https://img.shields.io/github/commit-activity/m/wrong-lang/manao" /></a>
     <img src="https://img.shields.io/github/license/wrong-lang/manao" />   
     <img src="https://img.shields.io/github/languages/top/wrong-lang/manao" />
