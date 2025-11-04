@@ -29,7 +29,7 @@ echo.
 
 :: Create temporary file for releases
 set "tempFile=%cd%\manao_releases.txt"
-powershell -Command "try { $releases = Invoke-RestMethod -Uri 'https://api.github.com/repos/wrong-lang/manao/releases'; $releases | ForEach-Object { Write-Output $_.tag_name } } catch { Write-Output 'ERROR: Failed to fetch releases' }" > "%tempFile%"
+powershell -Command "try { $releases = Invoke-RestMethod -Uri 'https://api.github.com/repos/tinarskii/manao/releases'; $releases | ForEach-Object { Write-Output $_.tag_name } } catch { Write-Output 'ERROR: Failed to fetch releases' }" > "%tempFile%"
 
 :: Check if fetch was successful
 
@@ -137,7 +137,7 @@ if not exist "%installPath%" (
 echo Downloading Manao Twitch Bot...
 if "%selectedVersion%"=="latest" (
     echo Cloning latest version...
-    git clone https://github.com/wrong-lang/manao.git "%installPath%"
+    git clone https://github.com/tinarskii/manao.git "%installPath%"
     if %errorlevel% neq 0 (
         echo Failed to clone repository.
         pause
@@ -145,11 +145,11 @@ if "%selectedVersion%"=="latest" (
     )
 ) else (
     echo Downloading version %selectedVersion%...
-    git clone --branch "%selectedVersion%" https://github.com/wrong-lang/manao.git "%installPath%"
+    git clone --branch "%selectedVersion%" https://github.com/tinarskii/manao.git "%installPath%"
     if %errorlevel% neq 0 (
         echo Failed to clone repository with version %selectedVersion%.
         echo Trying to clone and checkout...
-        git clone https://github.com/wrong-lang/manao.git "%installPath%"
+        git clone https://github.com/tinarskii/manao.git "%installPath%"
         if %errorlevel% neq 0 (
             echo Failed to clone repository.
             pause

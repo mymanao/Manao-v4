@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/wrong-lang/manao">
+  <a href="https://github.com/tinarskii/manao">
     <img src="https://raw.githubusercontent.com/tinarskii/manao/main/docs/manao.svg" height="64px" width="auto" />
     <h2 align="center">
       Manao
@@ -10,12 +10,12 @@
   </p>
   <div style="display: flex; flex-wrap: wrap; justify-items: center; justify-content: center">
 <a href="https://hackatime-badge.hackclub.com/U096PDK4PL3/Manao"><img src="https://hackatime-badge.hackclub.com/U096PDK4PL3/Manao" alt="wakatime"></a>
-<a href="https://github.com/wrong-lang/manao/pulse"><img src="https://img.shields.io/github/commit-activity/m/wrong-lang/manao" /></a>
-    <img src="https://img.shields.io/github/license/wrong-lang/manao" />   
-    <img src="https://img.shields.io/github/languages/top/wrong-lang/manao" />
+<a href="https://github.com/tinarskii/manao/pulse"><img src="https://img.shields.io/github/commit-activity/m/tinarskii/manao" /></a>
+    <img src="https://img.shields.io/github/license/tinarskii/manao" />   
+    <img src="https://img.shields.io/github/languages/top/tinarskii/manao" />
     <a href="https://discord.gg/vkW7YMyYaf"><img src="https://img.shields.io/discord/964718161624715304" /></a>
     <a href="/.github/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" /></a>
-    <img src="https://img.shields.io/github/package-json/v/wrong-lang/manao" />
+    <img src="https://img.shields.io/github/package-json/v/tinarskii/manao" />
   </div>
 </p>
 
@@ -39,7 +39,7 @@ expected if you are not using Bun.
 
 The project has a dedicated wiki for guides and documentation. 
 Read more at the [ManaoWiki](https://manaobot.netlify.app/)
-Available in English and Thai. The source code of ManaoWiki is available at [wrong-lang/manao-wiki](https://github.com/wrong-lang/manao-wiki)
+Available in English and Thai. The source code of ManaoWiki is available at [tinarskii/manao-wiki](https://github.com/tinarskii/manao-wiki)
 
 ## 📍 Features
 

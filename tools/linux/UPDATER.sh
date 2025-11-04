@@ -87,7 +87,7 @@ echo
 
 # Create temporary file for releases
 temp_file=$(mktemp)
-if curl -s "https://api.github.com/repos/wrong-lang/manao/releases" | grep -o '"tag_name": *"[^"]*"' | grep -o '"[^"]*"$' | tr -d '"' > "$temp_file" 2>/dev/null; then
+if curl -s "https://api.github.com/repos/tinarskii/manao/releases" | grep -o '"tag_name": *"[^"]*"' | grep -o '"[^"]*"$' | tr -d '"' > "$temp_file" 2>/dev/null; then
     if [ -s "$temp_file" ]; then
         echo "Available versions:"
         echo "0. Latest (git pull)"

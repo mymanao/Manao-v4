@@ -46,7 +46,7 @@ echo
 
 # Create temporary file for releases
 temp_file=$(mktemp)
-if curl -s "https://api.github.com/repos/wrong-lang/manao/releases" | grep -o '"tag_name": *"[^"]*"' | grep -o '"[^"]*"$' | tr -d '"' > "$temp_file" 2>/dev/null; then
+if curl -s "https://api.github.com/repos/tinarskii/manao/releases" | grep -o '"tag_name": *"[^"]*"' | grep -o '"[^"]*"$' | tr -d '"' > "$temp_file" 2>/dev/null; then
     if [ -s "$temp_file" ]; then
         echo "Available versions:"
         echo
@@ -201,18 +201,18 @@ fi
 echo "Downloading Manao Twitch Bot..."
 if [ "$selected_version" = "latest" ]; then
     echo "Cloning latest version..."
-    git clone https://github.com/wrong-lang/manao.git "$install_path"
+    git clone https://github.com/tinarskii/manao.git "$install_path"
     if [ $? -ne 0 ]; then
         print_error "Failed to clone repository."
         exit 1
     fi
 else
     echo "Downloading version $selected_version..."
-    if git clone --branch "$selected_version" https://github.com/wrong-lang/manao.git "$install_path"; then
+    if git clone --branch "$selected_version" https://github.com/tinarskii/manao.git "$install_path"; then
         echo "Successfully cloned version $selected_version"
     else
         echo "Failed to clone with version $selected_version. Trying to clone and checkout..."
-        git clone https://github.com/wrong-lang/manao.git "$install_path"
+        git clone https://github.com/tinarskii/manao.git "$install_path"
         if [ $? -ne 0 ]; then
             print_error "Failed to clone repository."
             exit 1

@@ -29,7 +29,7 @@ Write-Host "Fetching available releases..."
 Write-Host ""
 
 try {
-    $releases = Invoke-RestMethod -Uri 'https://api.github.com/repos/wrong-lang/manao/releases' -ErrorAction Stop
+    $releases = Invoke-RestMethod -Uri 'https://api.github.com/repos/tinarskii/manao/releases' -ErrorAction Stop
     $versions = $releases | ForEach-Object { $_.tag_name }
 } catch {
     Write-Host "ERROR: Failed to fetch releases"
@@ -132,14 +132,14 @@ Write-Host "Downloading Manao Twitch Bot..."
 try {
     if ($selectedVersion -eq "latest") {
         Write-Host "Cloning latest version..."
-        git clone https://github.com/wrong-lang/manao.git $installPath
+        git clone https://github.com/tinarskii/manao.git $installPath
     } else {
         Write-Host "Downloading version $selectedVersion..."
-        git clone --branch $selectedVersion https://github.com/wrong-lang/manao.git $installPath
+        git clone --branch $selectedVersion https://github.com/tinarskii/manao.git $installPath
         if ($LASTEXITCODE -ne 0) {
             Write-Host "Failed to clone repository with version $selectedVersion."
             Write-Host "Trying to clone and checkout..."
-            git clone https://github.com/wrong-lang/manao.git $installPath
+            git clone https://github.com/tinarskii/manao.git $installPath
             if ($LASTEXITCODE -eq 0) {
                 Set-Location $installPath
                 git checkout $selectedVersion

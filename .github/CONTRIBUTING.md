@@ -88,7 +88,7 @@ When creating issues, providing detailed and clear information will help us reso
 Ready to submit your changes? Here’s a step-by-step guide to submitting your contribution:
 
 1. **Fork the Repository**: Create your own fork of the repository by clicking the "Fork" button at the top of the repository’s page on GitHub.
-2. **Clone Your Fork**: Clone your fork to your local machine using `git clone https://github.com/wrong-lang/manao.git`.
+2. **Clone Your Fork**: Clone your fork to your local machine using `git clone https://github.com/tinarskii/manao.git`.
 3. **Create a New Branch**: Before making changes, create a new branch. A good naming convention is to use `feature/your-feature-name` or `bugfix/your-bugfix-name`.
 4. **Make Your Changes**: Implement your changes or fixes. Be sure to follow the code style and formatting guidelines.
 5. **Test Your Changes**: Run any relevant tests to ensure your changes work as expected and don’t break anything.

@@ -84,7 +84,7 @@ echo.
 
 :: Create temporary file for releases
 set "tempFile=%temp%\manao_releases_update.txt"
-powershell -Command "try { $releases = Invoke-RestMethod -Uri 'https://api.github.com/repos/wrong-lang/manao/releases'; $releases | ForEach-Object { Write-Output $_.tag_name } } catch { Write-Output 'ERROR: Failed to fetch releases' }" > "%tempFile%"
+powershell -Command "try { $releases = Invoke-RestMethod -Uri 'https://api.github.com/repos/tinarskii/manao/releases'; $releases | ForEach-Object { Write-Output $_.tag_name } } catch { Write-Output 'ERROR: Failed to fetch releases' }" > "%tempFile%"
 
 
 echo Available versions:
