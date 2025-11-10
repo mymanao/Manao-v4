@@ -108,7 +108,8 @@ async function startConfig(): Promise<void> {
         "To continue, please login to your BOT Twitch account (the secondary account for the bot).",
       useDiscord: "Would you like to enable Discord integration? (Y/n):",
       enterToken: "Enter your Discord Bot Token:",
-      configComplete: "✅ Configuration complete! .env file created.",
+      configComplete:
+        "✅ Configuration complete! .env file created.\nYou can close this window!",
     },
     th: {
       beforeStart: "🛠 ก่อนที่เราจะเริ่ม คุณต้องสร้าง Twitch Application",
@@ -130,7 +131,8 @@ async function startConfig(): Promise<void> {
         "เพื่อดำเนินการต่อ โปรดเข้าสู่ระบบบัญชีบอต Twitch ของคุณ (บัญชีรองที่ใช้สำหรับบอต)",
       useDiscord: "ต้องการเปิดใช้งานบอต Discord ด้วยหรือไม่ (Y/n):",
       enterToken: "ใส่โทเคนของบอต:",
-      configComplete: "✅ การกำหนดค่าครบถ้วน! สร้างไฟล์ .env เรียบร้อยแล้ว",
+      configComplete:
+        "✅ การกำหนดค่าครบถ้วน! สร้างไฟล์ .env เรียบร้อยแล้ว\nสามารถปิดหน้าต่างนี้ได้เลย!",
     },
   };
 
