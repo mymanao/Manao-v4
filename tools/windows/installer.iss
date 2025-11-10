@@ -18,7 +18,7 @@ Source: "INSTALLER.ps1"; DestDir: "{tmp}"; Flags: deleteafterinstall
 
 
 [Icons]
-Name: "{group}\Manao Twitch Bot"; Filename: "{app}\tools\windows\START_MANAOBOT.bat"
+Name: "{group}\Manao Twitch Bot"; Filename: "{app}\manao\tools\windows\START_MANAOBOT.bat"
 Name: "{group}\Uninstall Manao Twitch Bot"; Filename: "{uninstallexe}"
 
 
