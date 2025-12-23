@@ -12,7 +12,9 @@ export function initializeConnection(url: string, send: (msg: string) => void) {
   const sessionId = parsed.searchParams.get("session");
   socket = io(parsed.origin, {
     transports: ["websocket"],
-    query: { session: sessionId }
+    query: { session: sessionId },
+    upgrade: false,
+    reconnectionAttempts: 5
   });
 
   socket.on("connect", () => {
