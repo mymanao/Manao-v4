@@ -58,16 +58,20 @@ export const TWITCH = {
   ],
 };
 
+let isDiscordEnabled = Bun.env.USE_DISCORD === "true";
+
 export const DISCORD = {
-  ENABLED: Bun.env.USE_DISCORD === "true",
-  BOT_TOKEN: getEnvVar("DISCORD_BOT_TOKEN"),
+  ENABLED: isDiscordEnabled,
+  BOT_TOKEN: getEnvVar("DISCORD_BOT_TOKEN", isDiscordEnabled),
 };
 
+let isKickEnabled = Bun.env.USE_KICK === "true";
+
 export const KICK = {
-  ENABLED: Bun.env.USE_KICK === "true",
-  ID: getEnvVar("KICK_CLIENT_ID"),
-  SECRET: getEnvVar("KICK_CLIENT_SECRET"),
-  ACCESS_TOKEN: getEnvVar("KICK_ACCESS_TOKEN"),
-  REFRESH_TOKEN: getEnvVar("KICK_REFRESH_TOKEN"),
-  EXPIRES_AT: getEnvVar("KICK_EXPIRES_AT"),
+  ENABLED: isKickEnabled,
+  ID: getEnvVar("KICK_CLIENT_ID", isKickEnabled),
+  SECRET: getEnvVar("KICK_CLIENT_SECRET", isKickEnabled),
+  ACCESS_TOKEN: getEnvVar("KICK_ACCESS_TOKEN", isKickEnabled),
+  REFRESH_TOKEN: getEnvVar("KICK_REFRESH_TOKEN", isKickEnabled),
+  EXPIRES_AT: getEnvVar("KICK_EXPIRES_AT", isKickEnabled),
 };
