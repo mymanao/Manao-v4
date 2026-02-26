@@ -5,15 +5,28 @@ param(
 
 $ErrorActionPreference = "Stop"
 $target = Join-Path $InstallDir "manao"
-$versionFile = Join-Path $InstallDir "version.txt"
 $isUpdate = Test-Path $target
+
+# --- Helper: read version from package.json ---
+function Get-InstalledVersion {
+    $pkgJson = Join-Path $target "package.json"
+    if (Test-Path $pkgJson) {
+        try {
+            $pkg = Get-Content $pkgJson -Raw | ConvertFrom-Json
+            return $pkg.version
+        } catch {
+            return "unknown"
+        }
+    }
+    return "unknown"
+}
 
 # --- Header ---
 if ($isUpdate) {
     Write-Host "==============================" -ForegroundColor Cyan
     Write-Host "   Manao Bot - Updater" -ForegroundColor Cyan
     Write-Host "==============================" -ForegroundColor Cyan
-    $currentVersion = if (Test-Path $versionFile) { (Get-Content $versionFile -Raw).Trim() } else { "unknown" }
+    $currentVersion = Get-InstalledVersion
     Write-Host "Currently installed: $currentVersion"
 } else {
     Write-Host "==============================" -ForegroundColor Cyan
@@ -155,16 +168,16 @@ try {
 # --- Set environment variable ---
 [Environment]::SetEnvironmentVariable("MANAO_PATH", $target, "Machine")
 
-# --- Write version file ---
-$selectedVersion | Set-Content -Path $versionFile
+# --- Read final version from package.json ---
+$installedVersion = Get-InstalledVersion
 
 # --- Done ---
 Write-Host ""
 Write-Host "==============================" -ForegroundColor Green
 if ($isUpdate) {
-    Write-Host "  Manao Bot updated to $selectedVersion" -ForegroundColor Green
+    Write-Host "  Manao Bot updated to $installedVersion" -ForegroundColor Green
 } else {
-    Write-Host "  Manao Bot installed ($selectedVersion)" -ForegroundColor Green
+    Write-Host "  Manao Bot installed ($installedVersion)" -ForegroundColor Green
 }
 Write-Host "  Path: $target" -ForegroundColor Green
 Write-Host "==============================" -ForegroundColor Green
