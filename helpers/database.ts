@@ -1,7 +1,7 @@
-import { Database } from "bun:sqlite";
-import { customCommands } from "@twitch/services/chat";
-import type { Command, UserData } from "@/types";
-import { logger } from "./logger";
+import {Database} from "bun:sqlite";
+import {customCommands} from "@twitch/services/chat";
+import type {Command, UserData} from "@/types";
+import {logger} from "./logger";
 
 export const db = new Database("./bot-data.sqlite", { create: true });
 
@@ -191,5 +191,45 @@ export function deleteCommand(commandName: string): void {
 
   if (customCommands.has(commandName)) {
     customCommands.delete(commandName);
+  }
+}
+
+// Get balance for a Kick user and falls back to kick_id if not linked to Twitch
+export function getKickBalance(kickID: string): number {
+  const info = getInfoFromKickID(kickID);
+  if (info) return info.money;
+  // unlinked user: use kick_id directly as an account key
+  const row = db.prepare("SELECT money FROM users WHERE user = ?").get(`kick:${kickID}`) as {
+    money: number
+  } | undefined;
+  return row?.money ?? 0;
+}
+
+export function initKickAccount(kickID: string): void {
+  const linked = getInfoFromKickID(kickID);
+  if (linked) return; // already linked, an account exists
+  const key = `kick:${kickID}`;
+  const exists = db.prepare("SELECT 1 FROM users WHERE user = ?").get(key);
+  if (!exists) {
+    db.prepare("INSERT INTO users (user, money) VALUES (?, 0)").run(key);
+  }
+}
+
+export function addKickBalance(kickID: string, amount: number): void {
+  const info = getInfoFromKickID(kickID);
+  if (info) {
+    addBalance(info.user, amount);
+  } else {
+    initKickAccount(kickID);
+    db.prepare("UPDATE users SET money = money + ? WHERE user = ?").run(amount, `kick:${kickID}`);
+  }
+}
+
+export function subtractKickBalance(kickID: string, amount: number): void {
+  const info = getInfoFromKickID(kickID);
+  if (info) {
+    subtractBalance(info.user, amount);
+  } else {
+    db.prepare("UPDATE users SET money = money - ? WHERE user = ?").run(amount, `kick:${kickID}`);
   }
 }
