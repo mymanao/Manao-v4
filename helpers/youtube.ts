@@ -46,14 +46,22 @@ export async function searchYoutubeVideo(
     const html = await res.text();
 
     const match = html.match(/var ytInitialData = ({.*?});<\/script>/);
-    if (!match || !match[1]) return null;
+    if (!match || !match[1]) {
+      console.warn("[Scraper] YouTube HTML structure may have changed — ytInitialData not found");
+      return null;
+    }
 
     const data = JSON.parse(match[1]);
     const contents =
       data?.contents?.twoColumnSearchResultsRenderer?.primaryContents
         ?.sectionListRenderer?.contents;
 
-    for (const section of contents || []) {
+    if (!contents) {
+      console.warn("[Scraper] YouTube HTML structure may have changed — search results not found");
+      return null;
+    }
+
+    for (const section of contents) {
       const items = section?.itemSectionRenderer?.contents;
       for (const item of items || []) {
         const video = item.videoRenderer;
