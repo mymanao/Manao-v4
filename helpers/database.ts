@@ -3,7 +3,7 @@ import type { Command, UserData } from "@/types";
 import { logger } from "./logger";
 
 export const db = new Database("./bot-data.sqlite", { create: true });
-export const customCommands: Map<string, Command> = fetchCommand();
+export const customCommands: Map<string, Command> = new Map();
 
 export function initDatabase(): void {
   db.run(`
@@ -159,7 +159,7 @@ export function addCommand(command: Command): void {
   }
 }
 
-export function fetchCommand(): Map<string, Command> {
+export function fetchCustomCommands(): Map<string, Command> {
   const rows = db.prepare("SELECT * FROM commands").all() as Array<
     Partial<Command>
   >;

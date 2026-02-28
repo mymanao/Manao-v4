@@ -7,7 +7,6 @@ import {
 import {
   addBalance,
   addKickBalance,
-  fetchCommand,
   getInfoFromKickID,
   initKickAccount,
 } from "@helpers/database";
@@ -19,7 +18,6 @@ import type { ChatMessageEvent } from "@manaobot/kick/types";
 import { PREFIX } from "@/config.ts";
 
 export const commands: Map<string, Command> = new Map();
-export const customCommands: Map<string, Command> = fetchCommand();
 
 const sequenceIndex = new Map<string, number>();
 
