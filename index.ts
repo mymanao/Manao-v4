@@ -3,9 +3,13 @@ import { run } from "@/client/discord";
 import { startServer } from "./server";
 import { DISCORD, KICK } from "@/config.ts";
 import { startKickBot } from "@/client/kick";
-import { initDatabase } from "@helpers/database.ts";
+import {customCommands, fetchCustomCommands, initDatabase} from "@helpers/database.ts";
 
 initDatabase();
+
+for (const [key, cmd] of fetchCustomCommands()) {
+  customCommands.set(key, cmd);
+}
 
 if (DISCORD.ENABLED) {
   await run();
