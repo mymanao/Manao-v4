@@ -1,16 +1,13 @@
 import { Glob } from "bun";
-import {
-  getCurrency,
-  getCustomReplies,
-  getDisabledCommands,
-  getLang,
-} from "@helpers/preferences";
+import { getCurrency, getDisabledCommands, getLang } from "@helpers/preferences";
 import {
   addBalance,
+  addKickBalance,
   fetchCommand,
-  getTwitchIDFromKickID,
-  db,
+  getInfoFromKickID,
+  initKickAccount,
 } from "@helpers/database";
+import { getReplyStore } from "@helpers/replyStore";
 import { logger } from "@helpers/logger";
 import type { Command } from "@/types";
 import type { KickIt } from "@manaobot/kickit";
@@ -20,7 +17,6 @@ import { PREFIX } from "@/config.ts";
 export const commands: Map<string, Command> = new Map();
 export const customCommands: Map<string, Command> = fetchCommand();
 
-import { getReplyStore } from "@helpers/replyStore";
 const sequenceIndex = new Map<string, number>();
 
 export async function loadKickCommands(bot: KickIt) {
@@ -105,23 +101,15 @@ export async function loadKickCommands(bot: KickIt) {
       if (event.content.startsWith(PREFIX)) return;
 
       const kickID = event.sender.user_id.toString();
-      const twitchID = getTwitchIDFromKickID(kickID);
+      const userInfo = getInfoFromKickID(kickID);
 
-      // Give passive coins — works for both linked and unlinked users
-      if (twitchID) {
-        addBalance(twitchID, Math.trunc(Math.random() * 4));
+      if (userInfo) {
+        addBalance(userInfo.user, Math.trunc(Math.random() * 4));
       } else {
-        const key = `kick:${kickID}`;
-        const exists = db
-          .prepare("SELECT 1 FROM users WHERE user = ?")
-          .get(key);
-        if (!exists)
-          db.prepare("INSERT INTO users (user, money) VALUES (?, 0)").run(key);
-        db.prepare("UPDATE users SET money = money + ? WHERE user = ?").run(
-          Math.trunc(Math.random() * 4),
-          key,
-        );
+        initKickAccount(kickID);
+        addKickBalance(kickID, Math.trunc(Math.random() * 4));
       }
+
       const message = event.content.toLowerCase();
 
       for (const reply of getReplyStore()) {

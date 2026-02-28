@@ -47,6 +47,8 @@ export default {
         ON CONFLICT(discord_id) DO UPDATE SET twitch_id = excluded.twitch_id
     `).run(discordID, meta.userID);
 
+
+
     pendingLinks.delete(discordID);
 
     await client.chat.say(
