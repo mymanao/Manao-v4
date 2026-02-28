@@ -69,14 +69,12 @@ export function getTwitchIDFromKickID(kickID: string): string {
 }
 
 export function getInfoFromKickID(kickID: string): UserData | undefined {
-  const linkedRow = db
-    .prepare("SELECT twitch_id FROM linked_accounts WHERE kick_id = ?")
-    .get(kickID);
-  const twitchID = (linkedRow as { twitch_id: string })?.twitch_id;
-  const userRow = db
-    .prepare("SELECT * FROM users WHERE user = ?")
-    .get(twitchID);
-  return userRow as UserData | undefined;
+  const row = db.prepare(`
+    SELECT u.* FROM users u
+    INNER JOIN linked_accounts la ON la.twitch_id = u.user
+    WHERE la.kick_id = ?
+  `).get(kickID);
+  return row as UserData | undefined;
 }
 
 export function initAccountFromKick(kickID: string): void {
@@ -237,9 +235,7 @@ export function subtractKickBalance(kickID: string, amount: number): void {
   if (info) {
     subtractBalance(info.user, amount);
   } else {
-    db.prepare("UPDATE users SET money = money - ? WHERE user = ?").run(
-      amount,
-      `kick:${kickID}`,
-    );
+    initKickAccount(kickID);
+    db.prepare("UPDATE users SET money = money - ? WHERE user = ?").run(amount, `kick:${kickID}`);
   }
 }
