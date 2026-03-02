@@ -2,6 +2,7 @@ import type { ApiClient } from "@twurple/api";
 import type { ChatClient } from "@twurple/chat";
 import type { Server as SocketIOServer } from "socket.io";
 import type { KickIt } from "@manaobot/kickit";
+import { getSoundFromRewardId } from "@helpers/preferences.ts";
 
 export type Language = "en" | "th";
 export type UserType = "bot" | "broadcaster";
@@ -119,4 +120,15 @@ export interface SongData {
 export interface SongRequestData {
   user: string;
   song: SongData;
+}
+
+export interface SoundReward {
+  id: string;
+  title: string;
+  cost: number;
+  prompt: string;
+  isEnabled: boolean;
+  userInputRequired: boolean;
+  globalCooldown: number | null;
+  sound: string | null;
 }
