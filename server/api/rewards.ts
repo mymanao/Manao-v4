@@ -8,6 +8,7 @@ import type { HelixCustomReward } from "@twurple/api";
 import type { Elysia } from "elysia";
 import { apiClient } from "@/client/twitch";
 import { TWITCH } from "@/config.ts";
+import type { SoundReward } from "@/types";
 
 export async function registerRewardsAPI(app: Elysia) {
   app.get("/api/rewards", async () => {
@@ -16,7 +17,7 @@ export async function registerRewardsAPI(app: Elysia) {
       true,
     );
 
-    const rewardsData = [] as any[];
+    const rewardsData = [] as SoundReward[];
     rewards.forEach((reward: HelixCustomReward) => {
       rewardsData.push({
         id: reward.id,
