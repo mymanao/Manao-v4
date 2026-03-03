@@ -115,16 +115,25 @@ export function addLinkedPlatform(opts: {
   const { id, platform, platformID } = opts;
   const column = `${platform}_id`;
 
-  const existingRow = db.prepare(`SELECT id FROM linked_accounts WHERE id = ?`).get(id) as { id: string } | undefined;
+  const existingRow = db
+    .prepare(`SELECT id FROM linked_accounts WHERE id = ?`)
+    .get(id) as { id: string } | undefined;
   if (!existingRow) {
-    db.prepare(`INSERT INTO linked_accounts (id, ${column}) VALUES (?, ?)`).run(id, platformID);
+    db.prepare(`INSERT INTO linked_accounts (id, ${column}) VALUES (?, ?)`).run(
+      id,
+      platformID,
+    );
   } else {
-    db.prepare(`UPDATE linked_accounts SET ${column} = ? WHERE id = ?`).run(platformID, id);
+    db.prepare(`UPDATE linked_accounts SET ${column} = ? WHERE id = ?`).run(
+      platformID,
+      id,
+    );
   }
 
-  logger.info(`[Account Linking] Linked ${platform} account (${platformID}) to user ID: ${id}`);
+  logger.info(
+    `[Account Linking] Linked ${platform} account (${platformID}) to user ID: ${id}`,
+  );
 }
-
 
 /* ----------------------------------
    User Data
