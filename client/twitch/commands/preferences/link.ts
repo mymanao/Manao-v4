@@ -1,6 +1,10 @@
 import { addLinkedPlatform, getLinkedID, initAccount } from "@helpers/database";
 import { t } from "@helpers/i18n";
-import { consumeLinkCode, generateLinkCode, validateLinkCode } from "@helpers/linking";
+import {
+  consumeLinkCode,
+  generateLinkCode,
+  validateLinkCode,
+} from "@helpers/linking";
 import type { ClientServices, CommandMeta } from "@/types";
 
 export default {
@@ -63,7 +67,11 @@ export default {
       return;
     }
 
-    addLinkedPlatform({ id: targetInternalID, platform: "twitch", platformID: meta.userID });
+    addLinkedPlatform({
+      id: targetInternalID,
+      platform: "twitch",
+      platformID: meta.userID,
+    });
     consumeLinkCode(targetInternalID);
 
     await client.chat.say(

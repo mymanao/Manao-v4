@@ -1,8 +1,16 @@
 import type { KickItContext } from "@manaobot/kickit/types";
-import { addLinkedPlatform, getLinkedID, initAccount } from "@helpers/database.ts";
+import {
+  addLinkedPlatform,
+  getLinkedID,
+  initAccount,
+} from "@helpers/database.ts";
 import { t } from "@helpers/i18n.ts";
 import { getLang } from "@helpers/preferences.ts";
-import { consumeLinkCode, generateLinkCode, validateLinkCode } from "@helpers/linking.ts";
+import {
+  consumeLinkCode,
+  generateLinkCode,
+  validateLinkCode,
+} from "@helpers/linking.ts";
 import type { CommandMeta } from "@/types";
 
 export default {
@@ -63,7 +71,11 @@ export default {
       return;
     }
 
-    addLinkedPlatform({ id: targetInternalID, platform: "kick", platformID: meta.userID });
+    addLinkedPlatform({
+      id: targetInternalID,
+      platform: "kick",
+      platformID: meta.userID,
+    });
     consumeLinkCode(targetInternalID);
 
     await context.reply(
