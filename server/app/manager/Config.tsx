@@ -103,12 +103,12 @@ export function ConfigManager() {
             {["twitch", "kick", "discord"].map((platform) => (
               <div class="mb-6">
                 <h3 class="mb-3 flex items-center gap-2 font-semibold capitalize">
-                  <i class={`fa-brands fa-${platform} text-lg`}></i> {platform}
+                  <i class={`${platform !== "kick" ? "fa-brands fa-" + platform : "fa-solid fa-k"} text-lg`}></i> {platform}
                 </h3>
                 <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
                   <div>
                     <label class="label">
-                      <span class="label-text">Min</span>
+                      <span class="label-text">Mininum amount</span>
                     </label>
                     <input
                       id={`chatReward-${platform}-min`}
@@ -119,7 +119,7 @@ export function ConfigManager() {
                   </div>
                   <div>
                     <label class="label">
-                      <span class="label-text">Max</span>
+                      <span class="label-text">Maximum amount</span>
                     </label>
                     <input
                       id={`chatReward-${platform}-max`}
@@ -143,7 +143,7 @@ export function ConfigManager() {
                   </div>
                   <div>
                     <label class="label">
-                      <span class="label-text">Cooldown (s)</span>
+                      <span class="label-text">Cooldown (seconds)</span>
                     </label>
                     <input
                       id={`chatReward-${platform}-cooldown`}
