@@ -16,6 +16,12 @@
 
 ---
 
+> **NOTICE**: Manao v4 will receive only **critical bug fixes** and security patches and will receive **no new features**.
+> Meet the **newer version of Manao** at [Manao v5](https://gitlab.com/mymanao/Manao) or its [GitHub mirror](https://github.com/mymanao/Manao-v5)
+
+
+---
+
 ## Table of Contents
 
 - [🤔 About](#-about)
